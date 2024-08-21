@@ -1,0 +1,49 @@
+/*
+
+*/
+
+function whoseBicycle(diary1, diary2, diary3) {
+  let first = Object.values(diary1).reduce((acc, val) => acc + val, 0);
+  let second = Object.values(diary2).reduce((acc, val) => acc + val, 0);
+  let third = Object.values(diary3).reduce((acc, val) => acc + val, 0);
+  if(first == second && first == third) {
+    return 'I need to buy a bicycle for my third son.';
+  }
+  if(first == second && second > third) {
+    return 'I need to buy a bicycle for my second son.';
+  }
+  if(third == second && third > first) {
+    return 'I need to buy a bicycle for my third son.';
+  }
+  if (first > second && first > third) {
+    return 'I need to buy a bicycle for my first son.';
+  }
+  if (second > first && second > third) {
+    return 'I need to buy a bicycle for my second son.'
+  }
+  if (third > first && third > second) {
+    return 'I need to buy a bicycle for my third son.'
+  }
+}
+
+console.log(whoseBicycle({
+  'algebra': 6,
+  'history': 7,
+  'physics': 8,
+  'geography': 9,
+  'chemistry': 10
+},
+{
+  'algebra': 8,
+  'history': 7,
+  'physics': 8,
+  'geography': 9,
+  'chemistry': 10
+},
+{
+  'algebra': 6,
+  'history': 5,
+  'physics': 5,
+  'geography': 9,
+  'chemistry': 10
+}))
